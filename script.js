@@ -26,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     delete() {
       if (this.currentNumber === "" && this.operand === undefined) return;
-      else if (this.operand !== undefined) {
+      else if (this.operand !== undefined && this.currentNumber !== "") {
+        this.currentNumber = this.currentNumber.toString().slice(0, -1);
+      } else if (this.operand !== undefined) {
         this.operand = undefined;
         this.currentNumber = this.previousNumber;
         this.previousNumber = "";
